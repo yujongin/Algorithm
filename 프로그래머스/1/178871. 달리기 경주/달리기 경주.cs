@@ -6,7 +6,6 @@ public class Solution {
         int index = 0;
         foreach(string a in players){
             playerDic.Add(a,index);
-
             index++;
         }
         
