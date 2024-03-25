@@ -9,15 +9,15 @@ public class Solution {
                 mode = !mode;
             }else{
                 if(mode&&idx%2 ==1){
-                    ret = ret+code[idx].ToString();
+                    ret = ret+code[idx];
                 }else if(!mode&&idx%2 ==0){
-                    ret = ret+code[idx].ToString();
+                    ret = ret+code[idx];
                 }
             }
         }
         if(ret==""){
             ret = "EMPTY";
         }
-        return ret.ToString();
+        return ret;
     }
 }
