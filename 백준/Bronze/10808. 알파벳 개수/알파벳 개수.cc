@@ -1,19 +1,16 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
+int freq[26];
 int main(void){
-    ios :: sync_with_stdio(0);
+    ios:: sync_with_stdio(0);
     cin.tie(0);
     
-    string S;
-    cin >> S;
-    for(char a = 'a'; a <= 'z'; a++)
-    {
-        int cnt = 0;
-        for(auto c : S){
-            if(c == a)
-                cnt++;
-        }
-        cout << cnt << ' ';
-    }
+    string s;
+    cin >> s;
+    
+    for(auto c : s)
+        freq[c -'a']++;
+    for(int i = 0; i < 26; i++)
+        cout << freq[i] << ' '; 
 }
