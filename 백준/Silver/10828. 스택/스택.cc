@@ -1,47 +1,66 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
-const int MX = 1000005;
-int dat[MX]; 
+int myStack[10005];
 int pos = 0;
+
+void Push(int x){
+    myStack[pos++] = x;
+}
+
+void Pop(){
+    if(pos == 0){
+        cout << -1 << '\n';
+        return;
+    }
+    cout << myStack[pos - 1] << '\n';
+    pos--;
+}
+
+void Size(){
+    cout << pos << '\n';
+}
+
+void Empty(){
+    cout << (int)(pos == 0) << '\n';
+}
+
+void Top(){
+    if(pos == 0){
+        cout << -1 << '\n';
+        return;
+    }
+    cout << myStack[pos-1] << '\n';
+}
+
 
 int main(void) {
     ios::sync_with_stdio(0);
     cin.tie(0);
+    int n;
+    cin >> n;   
     
-    int count;
-    cin >> count;
-    
-    while(count--){
-        string op;
-        cin >> op;
+    while(n--){
+        string c;
+        cin >> c;
         
-        if(op == "push"){
-            int a;
-            cin >> a;
-            dat[pos++] = a;
+        if(c == "push"){
+            int x;
+            cin >> x;
+            Push(x);
         }
-        else if(op == "pop"){
-            if(pos != 0) {
-                cout << dat[pos-1] << '\n';
-                pos--;
-            }
-            else {cout << -1 << '\n';}
+        else if(c == "pop"){
+            Pop();
         }
-        else if(op == "size"){
-            cout << pos << '\n';  
+        else if(c == "size"){
+            Size();
         }
-        else if(op == "empty"){
-            if(pos == 0) cout << 1 << '\n';
-            else cout << 0 << '\n';
+        else if(c == "empty"){
+            Empty();
         }
-        else if(op == "top")
-        {
-            if(pos != 0) {
-                cout << dat[pos-1] << '\n';
-            }
-            else {cout << -1 << '\n';}
+        else{
+            Top();
         }
     }
+
 }
